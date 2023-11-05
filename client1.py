@@ -77,10 +77,8 @@ def main():
     print(response)
     
     # Check for references to other objects in the HTML response
-
-    for i in range(0):
-        if path.endswith(".html"):
-            links = re.findall(r'href="(.*?)"', response)
+    if path.endswith(".html"):
+        links = re.findall(r'href="(.*?)"', response)
         for link in links:
             print(f"Fetching: {link}")
             response = send_http_request(proxy_address, proxy_port, link)

@@ -55,10 +55,10 @@ def main():
     user_input = input("Do want to use Web Proxy Server (Y/N):")
 
     if user_input == "Y":
-        proxy_address = input("Proxy Address:")
-        proxy_port = int(input("Proxy Port:"))
-        server_address = input("Server Address:")
-        server_port = int(input("Server Port:"))
+        proxy_address = "127.0.0.2"
+        proxy_port = int(12347)
+        server_address = "192.168.135.246"
+        server_port = int(15200)
         path = input("File Path:")
         
         # Send the request to the web proxy server

@@ -2,11 +2,11 @@ import socket
 import threading
 import os
 
-HOST = '127.0.0.3'  # Server's IP address
+HOST = '192.168.135.246'  # Server's IP address
 PORT = 15200      # Port to listen on
 WEB_ROOT = os.path.dirname(os.path.abspath(__file__))  # Get the directory of the server script
 
-def handle_client(client_socket):
+def handle_client(client_socket, client_address):
     request_data = client_socket.recv(1024).decode()
     
     # Parse the HTTP request
@@ -33,7 +33,7 @@ def handle_client(client_socket):
     response = response_headers + response_data
     
     client_socket.send(response)
-    
+    print(f"[REQUEST SERVED]")
     client_socket.close()
 
 
@@ -49,7 +49,7 @@ def start_server():
         print(f"[CONNECTED] Accepted connection from {client_address}")
         
         # Create a new thread to handle the client
-        client_thread = threading.Thread(target=handle_client, args=(client_socket,))
+        client_thread = threading.Thread(target=handle_client, args=(client_socket,client_address))
         client_thread.start()
 
 if __name__ == '__main__':

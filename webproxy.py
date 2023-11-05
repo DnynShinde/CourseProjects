@@ -4,7 +4,7 @@ import os
 from queue import Queue
 
 HOST = "127.0.0.2"  # Server's IP address
-PORT = 12345  # Port to listen on
+PORT = 12347  # Port to listen on
 # WEB_ROOT = os.path.dirname(os.path.abspath(__file__))  # Get the directory of the server script
 
 
@@ -42,6 +42,9 @@ def handle_client(client_socket):
     request_line = request_lines[2]
     _, server_port = request_line.split()
     server_port = int(server_port)
+
+    server_add = '192.168.135.246'
+    server_port = 15200
 
     # Create a Queue to store the result
     result_queue = Queue()

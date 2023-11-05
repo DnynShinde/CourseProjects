@@ -1,0 +1,5 @@
+The <object> element is used to embed an image (example.jpg) and a video (example.mp4).
+The data attribute specifies the URL of the external resource.
+The type attribute specifies the MIME type of the resource.
+Inside the <object> element, you can provide fallback content that will be displayed if the browser does not support the embedded resource. For the image, it's another <img> element, and for the video, it's a simple paragraph indicating the lack of support.
+The <object> element is a versatile way to include external resources in your HTML documents while ensuring that there's an alternative for users whose browsers cannot render the embedded conten
